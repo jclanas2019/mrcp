@@ -1,0 +1,10 @@
+/Users/juancarloslanasocampo/Documents/2-lab-ai/mrcp/servicio_mrcp/target/debug/deps/libidna-799fb65bcbe7894a.rmeta: /Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/idna-1.0.3/src/lib.rs /Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/idna-1.0.3/src/deprecated.rs /Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/idna-1.0.3/src/punycode.rs /Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/idna-1.0.3/src/uts46.rs
+
+/Users/juancarloslanasocampo/Documents/2-lab-ai/mrcp/servicio_mrcp/target/debug/deps/libidna-799fb65bcbe7894a.rlib: /Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/idna-1.0.3/src/lib.rs /Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/idna-1.0.3/src/deprecated.rs /Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/idna-1.0.3/src/punycode.rs /Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/idna-1.0.3/src/uts46.rs
+
+/Users/juancarloslanasocampo/Documents/2-lab-ai/mrcp/servicio_mrcp/target/debug/deps/idna-799fb65bcbe7894a.d: /Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/idna-1.0.3/src/lib.rs /Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/idna-1.0.3/src/deprecated.rs /Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/idna-1.0.3/src/punycode.rs /Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/idna-1.0.3/src/uts46.rs
+
+/Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/idna-1.0.3/src/lib.rs:
+/Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/idna-1.0.3/src/deprecated.rs:
+/Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/idna-1.0.3/src/punycode.rs:
+/Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/idna-1.0.3/src/uts46.rs:

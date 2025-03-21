@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FRÍO-BOT: Asistente IIoT para Refrigeración Industrial</title>
+    <style>
+        :root {
+            --primary-color: #0052cc;
+            --secondary-color: #00b8d9;
+            --background-color: #f5f9ff;
+            --panel-color: #ffffff;
+            --error-color: #de350b;
+            --success-color: #00875a;
+            --text-color: #172b4d;
+            --border-color: #dfe1e6;
+            --knowledge-color: #f0f8ff;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+        
+        .header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-right: 15px;
+        }
+        
+        .tagline {
+            font-size: 14px;
+            color: #5e6c84;
+        }
+        
+        /* Diseño de grid para layout principal */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .container {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 25px;
+            background-color: var(--panel-color);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .knowledge-base {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background-color: var(--panel-color);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            padding: 15px;
+            position: sticky;
+            top: 20px;
+            height: fit-content;
+            max-height: calc(100vh - 40px);
+            overflow-y: auto;
+        }
+        
+        .knowledge-base.hidden {
+            display: none;
+        }
+        
+        .knowledge-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--primary-color);
+        }
+        
+        .document-card {
+            background-color: var(--knowledge-color);
+            border-radius: 6px;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-left: 3px solid var(--secondary-color);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .document-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .document-title {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--primary-color);
+        }
+        
+        .document-description {
+            font-size: 13px;
+            margin-bottom: 10px;
+            color: #505f79;
+        }
+        
+        .document-link {
+            display: inline-block;
+            background-color: #f4f5f7;
+            padding: 6px 12px;
+            border-radius: 4px;
+            text-decoration: none;
+            color: var(--primary-color);
+            font-size: 13px;
+            font-weight: 500;
+            transition: background-color 0.2s;
+        }
+        
+        .document-link:hover {
+            background-color: #e6f7ff;
+        }
+        
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        textarea {
+            width: 100%;
+            height: 120px;
+            margin: 10px 0;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 14px;
+            resize: vertical;
+            transition: border-color 0.2s;
+        }
+        
+        textarea:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 2px rgba(0, 184, 217, 0.2);
+        }
+        
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.2s;
+            margin-right: 8px;
+        }
+        
+        button:hover {
+            background-color: #0747a6;
+        }
+        
+        button:disabled {
+            background-color: #dfe1e6;
+            color: #97a0af;
+            cursor: not-allowed;
+        }
+        
+        .button-secondary {
+            background-color: #f4f5f7;
+            color: #42526e;
+            border: 1px solid #dfe1e6;
+        }
+        
+        .button-secondary:hover {
+            background-color: #ebecf0;
+        }
+        
+        .logs {
+            margin-top: 20px;
+            border: 1px solid var(--border-color);
+            padding: 10px;
+            height: 150px;
+            overflow-y: scroll;
+            background-color: #fafbfc;
+            font-family: monospace;
+            font-size: 12px;
+            border-radius: 4px;
+        }
+        
+        .status {
+            font-weight: 500;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .status-indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 8px;
+            background-color: #97a0af;
+        }
+        
+        .status-indicator.connected {
+            background-color: var(--success-color);
+        }
+        
+        .status-indicator.disconnected {
+            background-color: var(--error-color);
+        }
+        
+        .error {
+            color: var(--error-color);
+            font-weight: 500;
+        }
+        
+        audio {
+            margin-top: 15px;
+            width: 100%;
+            border-radius: 4px;
+        }
+        
+        .controls {
+            margin: 15px 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: center;
+        }
+        
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 44px;
+            height: 24px;
+            vertical-align: middle;
+        }
+        
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+        
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        
+        input:checked + .slider {
+            background-color: var(--primary-color);
+        }
+        
+        input:checked + .slider:before {
+            transform: translateX(20px);
+        }
+        
+        .label {
+            vertical-align: middle;
+            font-size: 14px;
+            margin-left: 8px;
+        }
+        
+        .response-text {
+            margin-top: 15px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-left: 4px solid var(--secondary-color);
+            border-radius: 4px;
+            max-height: 300px;
+            overflow-y: auto;
+            line-height: 1.5;
+            font-size: 14px;
+        }
+        
+        select {
+            padding: 8px 12px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            background-color: white;
+            font-size: 14px;
+        }
+        
+        .loading {
+            display: inline-block;
+            margin-left: 10px;
+        }
+        
+        .loading:after {
+            content: " ";
+            display: block;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            border: 3px solid var(--primary-color);
+            border-color: var(--primary-color) transparent var(--primary-color) transparent;
+            animation: loading 1.2s linear infinite;
+        }
+        
+        @keyframes loading {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .hidden {
+            display: none !important;
+        }
+        
+        .examples {
+            margin-top: 15px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 10px;
+        }
+        
+        .example-button {
+            background-color: #f4f5f7;
+            color: #42526e;
+            border: 1px solid #dfe1e6;
+            padding: 8px 12px;
+            border-radius: 4px;
+            text-align: left;
+            cursor: pointer;
+            font-size: 13px;
+            transition: background-color 0.2s;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        
+        .example-button:hover {
+            background-color: #ebecf0;
+        }
+        
+        .section-title {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #42526e;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 10px;
+            background-color: #e9f2ff;
+            color: var(--primary-color);
+            font-size: 12px;
+            font-weight: 500;
+            margin-left: 8px;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 900px) {
+            .main-layout {
+                grid-template-columns: 1fr;
+            }
+            
+            .knowledge-base {
+                position: static;
+                max-height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">🧊 FRÍO-BOT</div>
+        <div class="tagline">Asistente IIoT para Sistemas de Refrigeración Industrial</div>
+    </div>
+    
+    <div class="main-layout">
+        <div class="container">
+            <div class="panel-header">
+                <div class="status">
+                    <div id="status-indicator" class="status-indicator disconnected"></div>
+                    <span id="connection-status">Desconectado</span>
+                </div>
+                <select id="language-select">
+                    <option value="es">Español</option>
+                    <option value="en">Inglés</option>
+                    <option value="pt">Portugués</option>
+                    <option value="fr">Francés</option>
+                    <option value="de">Alemán</option>
+                </select>
+            </div>
+            
+            <button id="connect-btn">Conectar al servidor</button>
+            <button id="disconnect-btn" class="button-secondary" disabled>Desconectar</button>
+            
+            <h3>Consulta técnica</h3>
+            <div class="section-title">Ejemplos de consultas:</div>
+            <div class="examples">
+                <button class="example-button">Sensor de temperatura muestra -50°C, ¿es posible un fallo?</button>
+                <button class="example-button">Evaporador con escarcha excesiva en sistema de amoniaco</button>
+                <button class="example-button">Error de comunicación MQTT en sensores de cámara frigorífica</button>
+                <button class="example-button">Parámetros óptimos para compresor Bitzer en sala de procesado</button>
+                <button class="example-button">Alertas de temperatura para productos lácteos según HACCP</button>
+                <button class="example-button">Consumo energético anormal en condensador</button>
+            </div>
+            
+            <textarea id="input-text" placeholder="Describe tu consulta técnica sobre el sistema de refrigeración industrial..."></textarea>
+            <button id="send-btn" disabled>Enviar consulta</button>
+            <span id="loading-indicator" class="loading hidden"></span>
+            
+            <div class="controls">
+                <div>
+                    <label class="switch">
+                        <input type="checkbox" id="autoplay-toggle" checked>
+                        <span class="slider"></span>
+                    </label>
+                    <span class="label">Reproducción automática</span>
+                </div>
+                <div>
+                    <label class="switch">
+                        <input type="checkbox" id="ai-toggle" checked>
+                        <span class="slider"></span>
+                    </label>
+                    <span class="label">Procesar con IA</span>
+                </div>
+            </div>
+            
+            <div id="response-container" style="display:none;">
+                <h3>Respuesta del asistente técnico:</h3>
+                <div id="response-text" class="response-text"></div>
+            </div>
+            
+            <div id="audio-container" style="display:none;">
+                <h3>Respuesta por voz:</h3>
+                <audio id="audio-player" controls></audio>
+            </div>
+            
+            <h3>Logs del sistema:</h3>
+            <div class="logs" id="log-container"></div>
+        </div>
+        
+        <div id="knowledge-base" class="knowledge-base hidden">
+            <div class="knowledge-title">
+                Documentación técnica relevante
+                <span id="doc-count" class="badge">0</span>
+            </div>
+            <div id="documents-container">
+                <!-- Los documentos se generarán dinámicamente aquí -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let socket = null;
+        const statusEl = document.getElementById('connection-status');
+        const statusIndicator = document.getElementById('status-indicator');
+        const connectBtn = document.getElementById('connect-btn');
+        const disconnectBtn = document.getElementById('disconnect-btn');
+        const sendBtn = document.getElementById('send-btn');
+        const inputTextEl = document.getElementById('input-text');
+        const logContainer = document.getElementById('log-container');
+        const audioContainer = document.getElementById('audio-container');
+        const audioPlayer = document.getElementById('audio-player');
+        const autoplayToggle = document.getElementById('autoplay-toggle');
+        const aiToggle = document.getElementById('ai-toggle');
+        const languageSelect = document.getElementById('language-select');
+        const responseContainer = document.getElementById('response-container');
+        const responseText = document.getElementById('response-text');
+        const loadingIndicator = document.getElementById('loading-indicator');
+        const exampleButtons = document.querySelectorAll('.example-button');
+        const knowledgeBase = document.getElementById('knowledge-base');
+        const documentsContainer = document.getElementById('documents-container');
+        const docCount = document.getElementById('doc-count');
+        
+        // Limpiar el área de respuesta
+        function clearResponse() {
+            responseContainer.style.display = 'none';
+            audioContainer.style.display = 'none';
+            responseText.textContent = '';
+            audioPlayer.src = '';
+            knowledgeBase.classList.add('hidden');
+            documentsContainer.innerHTML = '';
+        }
+        
+        // Renderizar documentos de la base de conocimiento
+        function mostrarDocumentosRelevantes(documentos) {
+            if (!documentos || documentos.length === 0) {
+                knowledgeBase.classList.add('hidden');
+                return;
+            }
+            
+            // Mostrar el panel de base de conocimiento
+            knowledgeBase.classList.remove('hidden');
+            docCount.textContent = documentos.length;
+            
+            // Limpiar el contenedor
+            documentsContainer.innerHTML = '';
+            
+            // Generar tarjetas para cada documento
+            documentos.forEach(doc => {
+                const card = document.createElement('div');
+                card.className = 'document-card';
+                
+                card.innerHTML = `
+                    <div class="document-title">${doc.titulo}</div>
+                    <div class="document-description">${doc.descripcion}</div>
+                    <a href="${doc.url}" target="_blank" class="document-link">Ver documento</a>
+                `;
+                
+                documentsContainer.appendChild(card);
+            });
+        }
+        
+        function log(message, isError = false) {
+            const entry = document.createElement('div');
+            entry.className = isError ? 'error' : '';
+            entry.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
+            logContainer.appendChild(entry);
+            logContainer.scrollTop = logContainer.scrollHeight;
+        }
+        
+        connectBtn.addEventListener('click', () => {
+            if (socket) return;
+            
+            try {
+                socket = new WebSocket('ws://localhost:8000');
+                statusEl.textContent = 'Conectando...';
+                
+                socket.onopen = () => {
+                    statusEl.textContent = 'Conectado';
+                    statusIndicator.classList.remove('disconnected');
+                    statusIndicator.classList.add('connected');
+                    connectBtn.disabled = true;
+                    disconnectBtn.disabled = false;
+                    sendBtn.disabled = false;
+                    log('Conexión establecida con el servidor de soporte técnico');
+                };
+                
+                socket.onmessage = (event) => {
+                    // Ocultar indicador de carga
+                    loadingIndicator.classList.add('hidden');
+                    
+                    log(`Mensaje recibido del servidor`);
+                    try {
+                        const response = JSON.parse(event.data);
+                        console.log('Respuesta completa:', response);
+                        
+                        if (response.error) {
+                            log(`Error: ${response.error}`, true);
+                        } else if (response.success === false) {
+                            log(`Error en la generación de audio: ${response.error}`, true);
+                        } else if (response.audio_base64) {
+                            log(`Respuesta técnica generada correctamente`);
+                            
+                            // Mostrar texto procesado si está disponible
+                            if (response.texto_procesado) {
+                                responseText.textContent = response.texto_procesado;
+                                responseContainer.style.display = 'block';
+                            }
+                            
+                            // Mostrar documentos relevantes si existen
+                            if (response.documentos && response.documentos.length > 0) {
+                                log(`Encontrados ${response.documentos.length} documentos técnicos relevantes`);
+                                mostrarDocumentosRelevantes(response.documentos);
+                            } else {
+                                knowledgeBase.classList.add('hidden');
+                            }
+                            
+                            // Crear audio a partir de base64
+                            const audioData = `data:audio/${response.formato};base64,${response.audio_base64}`;
+                            audioPlayer.src = audioData;
+                            audioContainer.style.display = 'block';
+                            
+                            // Reproducir automáticamente si está activado
+                            if (autoplayToggle.checked) {
+                                audioPlayer.play().catch(error => {
+                                    log(`Error al reproducir automáticamente: ${error.message}`, true);
+                                    log("Algunos navegadores requieren interacción del usuario antes de reproducir audio", true);
+                                });
+                            }
+                        }
+                    } catch (e) {
+                        log(`Error al procesar respuesta: ${e.message}`, true);
+                    }
+                };
+                
+                socket.onclose = (event) => {
+                    statusEl.textContent = 'Desconectado';
+                    statusIndicator.classList.remove('connected');
+                    statusIndicator.classList.add('disconnected');
+                    connectBtn.disabled = false;
+                    disconnectBtn.disabled = true;
+                    sendBtn.disabled = true;
+                    loadingIndicator.classList.add('hidden');
+                    log(`Conexión cerrada: ${event.reason || 'Sin razón especificada'}`);
+                    socket = null;
+                };
+                
+                socket.onerror = (error) => {
+                    loadingIndicator.classList.add('hidden');
+                    log(`Error de WebSocket: ${error}`, true);
+                };
+            } catch (e) {
+                loadingIndicator.classList.add('hidden');
+                log(`Error al conectar: ${e.message}`, true);
+            }
+        });
+        
+        disconnectBtn.addEventListener('click', () => {
+            if (socket) {
+                socket.close();
+                socket = null;
+            }
+        });
+        
+        sendBtn.addEventListener('click', () => {
+            if (!socket || socket.readyState !== WebSocket.OPEN) {
+                log('No hay conexión con el servidor', true);
+                return;
+            }
+            
+            const text = inputTextEl.value.trim();
+            if (!text) {
+                log('Por favor, ingresa una consulta técnica para procesar', true);
+                return;
+            }
+            
+            // Mostrar indicador de carga
+            loadingIndicator.classList.remove('hidden');
+            
+            // Limpiar respuesta anterior
+            clearResponse();
+            
+            const message = {
+                texto: text,
+                voz: languageSelect.value,
+                use_ai: aiToggle.checked
+            };
+            
+            try {
+                socket.send(JSON.stringify(message));
+                log(`Enviando consulta técnica: "${text.substring(0, 30)}${text.length > 30 ? '...' : ''}"`);
+                if (aiToggle.checked) {
+                    log(`Analizando problema técnico (esto puede tardar unos segundos)...`);
+                }
+            } catch (e) {
+                loadingIndicator.classList.add('hidden');
+                log(`Error al enviar mensaje: ${e.message}`, true);
+            }
+        });
+
+        // Permitir enviar con Enter
+        inputTextEl.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter' && !e.shiftKey && !sendBtn.disabled) {
+                e.preventDefault();
+                sendBtn.click();
+            }
+        });
+        
+        // Ejemplos de consultas
+        exampleButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                inputTextEl.value = button.textContent;
+                // Desplazar al área de texto
+                inputTextEl.scrollIntoView({ behavior: 'smooth' });
+                // Enfocar el área de texto
+                inputTextEl.focus();
+                
+                // Limpiar respuesta anterior cuando se selecciona un ejemplo
+                clearResponse();
+            });
+        });
+    </script>
+</body>
+</html>

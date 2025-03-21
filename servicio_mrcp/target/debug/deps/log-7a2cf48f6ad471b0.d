@@ -1,0 +1,10 @@
+/Users/juancarloslanasocampo/Documents/2-lab-ai/mrcp/servicio_mrcp/target/debug/deps/liblog-7a2cf48f6ad471b0.rmeta: /Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.26/src/lib.rs /Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.26/src/macros.rs /Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.26/src/serde.rs /Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.26/src/__private_api.rs
+
+/Users/juancarloslanasocampo/Documents/2-lab-ai/mrcp/servicio_mrcp/target/debug/deps/liblog-7a2cf48f6ad471b0.rlib: /Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.26/src/lib.rs /Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.26/src/macros.rs /Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.26/src/serde.rs /Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.26/src/__private_api.rs
+
+/Users/juancarloslanasocampo/Documents/2-lab-ai/mrcp/servicio_mrcp/target/debug/deps/log-7a2cf48f6ad471b0.d: /Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.26/src/lib.rs /Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.26/src/macros.rs /Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.26/src/serde.rs /Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.26/src/__private_api.rs
+
+/Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.26/src/lib.rs:
+/Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.26/src/macros.rs:
+/Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.26/src/serde.rs:
+/Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/log-0.4.26/src/__private_api.rs:

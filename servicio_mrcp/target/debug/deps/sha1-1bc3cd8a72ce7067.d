@@ -1,0 +1,10 @@
+/Users/juancarloslanasocampo/Documents/2-lab-ai/mrcp/servicio_mrcp/target/debug/deps/libsha1-1bc3cd8a72ce7067.rmeta: /Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sha1-0.10.6/src/lib.rs /Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sha1-0.10.6/src/compress.rs /Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sha1-0.10.6/src/compress/soft.rs /Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sha1-0.10.6/src/compress/x86.rs
+
+/Users/juancarloslanasocampo/Documents/2-lab-ai/mrcp/servicio_mrcp/target/debug/deps/libsha1-1bc3cd8a72ce7067.rlib: /Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sha1-0.10.6/src/lib.rs /Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sha1-0.10.6/src/compress.rs /Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sha1-0.10.6/src/compress/soft.rs /Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sha1-0.10.6/src/compress/x86.rs
+
+/Users/juancarloslanasocampo/Documents/2-lab-ai/mrcp/servicio_mrcp/target/debug/deps/sha1-1bc3cd8a72ce7067.d: /Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sha1-0.10.6/src/lib.rs /Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sha1-0.10.6/src/compress.rs /Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sha1-0.10.6/src/compress/soft.rs /Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sha1-0.10.6/src/compress/x86.rs
+
+/Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sha1-0.10.6/src/lib.rs:
+/Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sha1-0.10.6/src/compress.rs:
+/Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sha1-0.10.6/src/compress/soft.rs:
+/Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sha1-0.10.6/src/compress/x86.rs:

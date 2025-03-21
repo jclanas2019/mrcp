@@ -1,0 +1,10 @@
+/Users/juancarloslanasocampo/Documents/2-lab-ai/mrcp/servicio_mrcp/target/debug/deps/libspin-ccb7c09a111ec29f.rmeta: /Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/spin-0.9.8/src/lib.rs /Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/spin-0.9.8/src/mutex.rs /Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/spin-0.9.8/src/mutex/spin.rs /Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/spin-0.9.8/src/relax.rs
+
+/Users/juancarloslanasocampo/Documents/2-lab-ai/mrcp/servicio_mrcp/target/debug/deps/libspin-ccb7c09a111ec29f.rlib: /Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/spin-0.9.8/src/lib.rs /Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/spin-0.9.8/src/mutex.rs /Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/spin-0.9.8/src/mutex/spin.rs /Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/spin-0.9.8/src/relax.rs
+
+/Users/juancarloslanasocampo/Documents/2-lab-ai/mrcp/servicio_mrcp/target/debug/deps/spin-ccb7c09a111ec29f.d: /Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/spin-0.9.8/src/lib.rs /Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/spin-0.9.8/src/mutex.rs /Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/spin-0.9.8/src/mutex/spin.rs /Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/spin-0.9.8/src/relax.rs
+
+/Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/spin-0.9.8/src/lib.rs:
+/Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/spin-0.9.8/src/mutex.rs:
+/Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/spin-0.9.8/src/mutex/spin.rs:
+/Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/spin-0.9.8/src/relax.rs:

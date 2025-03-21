@@ -1,0 +1,10 @@
+/Users/juancarloslanasocampo/Documents/2-lab-ai/mrcp/servicio_mrcp/target/debug/deps/libunicase-f667666e481eb9eb.rmeta: /Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/unicase-2.8.1/src/lib.rs /Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/unicase-2.8.1/src/ascii.rs /Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/unicase-2.8.1/src/unicode/mod.rs /Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/unicase-2.8.1/src/unicode/map.rs
+
+/Users/juancarloslanasocampo/Documents/2-lab-ai/mrcp/servicio_mrcp/target/debug/deps/libunicase-f667666e481eb9eb.rlib: /Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/unicase-2.8.1/src/lib.rs /Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/unicase-2.8.1/src/ascii.rs /Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/unicase-2.8.1/src/unicode/mod.rs /Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/unicase-2.8.1/src/unicode/map.rs
+
+/Users/juancarloslanasocampo/Documents/2-lab-ai/mrcp/servicio_mrcp/target/debug/deps/unicase-f667666e481eb9eb.d: /Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/unicase-2.8.1/src/lib.rs /Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/unicase-2.8.1/src/ascii.rs /Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/unicase-2.8.1/src/unicode/mod.rs /Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/unicase-2.8.1/src/unicode/map.rs
+
+/Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/unicase-2.8.1/src/lib.rs:
+/Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/unicase-2.8.1/src/ascii.rs:
+/Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/unicase-2.8.1/src/unicode/mod.rs:
+/Users/juancarloslanasocampo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/unicase-2.8.1/src/unicode/map.rs:
