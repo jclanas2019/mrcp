@@ -86,14 +86,7 @@ async fn start_http_server() {
     let addr = SocketAddr::from(([0, 0, 0, 0], 8080));
     println!("🌐 Servidor HTTP escuchando en http://{}", addr);
 
-    let base_path = {
-        let exe = std::env::current_exe().unwrap_or_else(|_| PathBuf::from("."));
-        exe.parent()
-            .and_then(|p| p.parent())
-            .and_then(|p| p.parent())
-            .map(|p| p.join("static")) // 👈 ahora busca en mrcp/static/
-            .unwrap_or_else(|| PathBuf::from("static"))
-    };
+    let base_path = PathBuf::from("/app/static"); // 📌 Ajuste para Docker
 
     let make_svc = make_service_fn(move |_conn| {
         let base_path = base_path.clone();
